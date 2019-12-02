@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import gameStore from '../flux/stores/gameStore'
 import * as gameActions from '../flux/actions/action'
-
+import logo from '../images/gatsby.png'
 
 const Game = () => {
     const [upcoming, setUpcoming] = useState(gameStore.getUpcoming())
@@ -38,21 +38,21 @@ const Game = () => {
                             case 0:
                                 return (
                                     <div className={'row left'}>
-                                        <ing src='src/images/gatsby-icon.png'></ing>
+                                        <img src={logo} alt='logo   '></img>
                                     </div>
                                 )
                                 break
                             case 1:
                                 return (
                                     <div className={'row middle'}>
-                                        <ing src='src/images/gatsby-icon.png'></ing>
+                                        <img src={logo} alt='logo   '></img>
                                     </div>
                                 )
                                 break
                             case 2:
                                 return (
                                     <div className={'row right'}>
-                                        <ing src='src/images/gatsby-icon.png'></ing>
+                                        <img src={logo} alt='logo   '></img>
                                     </div>
                                 )
                                 break
