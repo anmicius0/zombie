@@ -1,5 +1,6 @@
 import React from "react"
 import Game from '../components/Game'
+import '../components/game.scss'
 
 const IndexPage = () => {
 

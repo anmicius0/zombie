@@ -4,16 +4,18 @@ import * as gameActions from '../flux/actions/action'
 
 
 const Game = () => {
-    const [upcoming, setUpcoming] = useState(gameStore.initialUpcoming())
+    const [upcoming, setUpcoming] = useState(gameStore.getUpcoming())
 
     useEffect(() => {
         gameStore.addHitListener(update)
         document.addEventListener('keydown', check)
+        console.log(upcoming)
         return () => {
             gameStore.removeHitListener(update)
             document.removeEventListener('keydown', check)
+            console.log('removed')
         }
-    }, [])
+    }, [upcoming])
 
     function update() {
         setUpcoming(gameStore.getUpcoming())
@@ -21,15 +23,46 @@ const Game = () => {
     }
 
     function check(e) {
-        console.log(e.key)
-        if (parseInt(e.key) === upcoming[0]) {
-            gameActions.correctHit()
+        if ((parseInt(e.key) - 1) === upcoming[upcoming.length - 1]) {
+            gameActions.correctHit(upcoming)
         }
     }
 
+
     return (
         < main >
-            {upcoming}
+            <div id={'gameBoard'}>
+                {
+                    upcoming.reverse().map(item => {
+                        switch (item) {
+                            case 0:
+                                return (
+                                    <div className={'row left'}>
+                                        <ing src='src/images/gatsby-icon.png'></ing>
+                                    </div>
+                                )
+                                break
+                            case 1:
+                                return (
+                                    <div className={'row middle'}>
+                                        <ing src='src/images/gatsby-icon.png'></ing>
+                                    </div>
+                                )
+                                break
+                            case 2:
+                                return (
+                                    <div className={'row right'}>
+                                        <ing src='src/images/gatsby-icon.png'></ing>
+                                    </div>
+                                )
+                                break
+                            default:
+                        }
+
+                    })
+                }
+
+            </div>
         </main >
     )
 }

@@ -4,6 +4,9 @@ import actionTypes from '../actions/actionTypes'
 
 const HIT = 'hit'
 let _upcoming = []
+for (var i = 0; i < 5; i++) {
+    _upcoming.push(Math.floor(Math.random() * 3))
+}
 
 class gameStore extends EventEmitter {
     addHitListener(callback) {
@@ -11,23 +14,15 @@ class gameStore extends EventEmitter {
     }
 
     removeHitListener(callback) {
-        this.on(HIT, callback)
+        this.removeListener(HIT, callback)
     }
 
     emitHit() {
         this.emit(HIT)
     }
 
-    initialUpcoming() {
-        for (var i = 0; i < 6; i++) {
-            _upcoming.push(Math.floor(Math.random() * 3))
-        }
-
-        return _upcoming
-    }
-
     getUpcoming() {
-        return _upcoming
+        return _upcoming.slice()
     }
 }
 
