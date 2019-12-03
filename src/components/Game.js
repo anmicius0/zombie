@@ -9,11 +9,7 @@ const Game = () => {
     useEffect(() => {
         gameStore.addHitListener(update)
         document.addEventListener('keydown', send)
-        return () => {
-            gameStore.removeHitListener(update)
-            document.removeEventListener('keydown', send)
-        }
-    }, [upcoming])
+    }, [])
 
     function update() {
         setUpcoming(gameStore.getUpcoming())
