@@ -4,7 +4,7 @@ import actionTypes from './actionTypes'
 export const correctHit = (prevUpcoming) => {
     dispatcher.dispatch(
         {
-            actionType: actionTypes.CORRECT_HIT,
+            actionType: actionTypes.HIT,
             prevUpcoming: prevUpcoming
         }
     )
