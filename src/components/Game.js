@@ -8,21 +8,18 @@ const Game = () => {
 
     useEffect(() => {
         gameStore.addHitListener(update)
-        document.addEventListener('keydown', check)
-        console.log(upcoming)
+        document.addEventListener('keydown', send)
         return () => {
             gameStore.removeHitListener(update)
-            document.removeEventListener('keydown', check)
-            console.log('removed')
+            document.removeEventListener('keydown', send)
         }
     }, [upcoming])
 
     function update() {
         setUpcoming(gameStore.getUpcoming())
-        console.log(upcoming)
     }
 
-    function check(e) {
+    function send(e) {
         gameActions.Hit(parseInt(e.key) - 1)
     }
 

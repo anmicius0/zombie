@@ -31,9 +31,12 @@ const store = new gameStore()
 dispatcher.register(action => {
     switch (action.actionType) {
         case actionTypes.HIT:
-            _upcoming.push(Math.floor(Math.random() * 3))
-            _upcoming.shift()
-            store.emitHit()
+            if (action.key === _upcoming[0]) {
+                _upcoming.push(Math.floor(Math.random() * 3))
+                _upcoming.shift()
+                store.emitHit()
+                console.log(_upcoming)
+            }
             break
         default:
     }
