@@ -23,11 +23,8 @@ const Game = () => {
     }
 
     function check(e) {
-        if ((parseInt(e.key) - 1) === upcoming[upcoming.length - 1]) {
-            gameActions.correctHit(upcoming)
-        }
+        gameActions.Hit(parseInt(e.key) - 1)
     }
-
 
     return (
         <div id={'gameBoard'}>
@@ -76,11 +73,19 @@ const Game = () => {
                 })
             }
             <div className={'row hitbar'}>
-                <span className={"left"}>
+                <span className={"left"} onClick={() => {
+                    gameActions.Hit(0)
+                }}>
                 </span>
-                <span className={"middle"}>
+                <span className={"middle"} onClick={() => {
+                    gameActions.Hit(1)
+                }}
+                >
                 </span>
-                <span className={"right"}>
+                <span className={"right"} onClick={() => {
+                    gameActions.Hit(2)
+                }}
+                >
                 </span>
             </div>
         </div>

@@ -1,11 +1,11 @@
 import dispatcher from '../dispatcher'
 import actionTypes from './actionTypes'
 
-export const correctHit = (prevUpcoming) => {
+export const Hit = (key) => {
     dispatcher.dispatch(
         {
             actionType: actionTypes.HIT,
-            prevUpcoming: prevUpcoming
+            key: key
         }
     )
 }
