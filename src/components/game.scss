@@ -1,35 +1,43 @@
 main {
   width: 100%;
   height: 100%;
-  display: flex;
   justify-content: center;
 }
 
 #gameBoard {
-  display: grid;
-  height: 100%;
+  height: 96vh;
   width: 100%;
-}
 
-.row {
-  display: flex;
-  height: 15vh;
-  border: 2px solid black;
-}
+  .row {
+    height: calc(100% / 6);
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
-img {
-  height: 15vh;
-  width: auto;
-}
+    span {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      border: black solid 1px;
 
-.left {
-  justify-content: left;
-}
+      img {
+        object-fit: contain;
+        max-height: 15vh;
+        max-width: 30vw;
+      }
+    }
 
-.middle {
-  justify-content: center;
-}
+    .left {
+      grid-column: 1 / span 1;
+    }
 
-.right {
-  justify-content: right;
+    .middle {
+      grid-column: 2 / span 1;
+    }
+
+    .right {
+      grid-column: 3 / span 1;
+    }
+  }
 }

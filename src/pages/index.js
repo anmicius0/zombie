@@ -5,9 +5,9 @@ import '../components/game.scss'
 const IndexPage = () => {
 
   return (
-    <div>
+    <main>
       <Game />
-    </div>
+    </main>
   )
 }
 

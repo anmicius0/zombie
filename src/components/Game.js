@@ -30,40 +30,60 @@ const Game = () => {
 
 
     return (
-        < main >
-            <div id={'gameBoard'}>
-                {
-                    upcoming.reverse().map(item => {
-                        switch (item) {
-                            case 0:
-                                return (
-                                    <div className={'row left'}>
-                                        <img src={logo} alt='logo   '></img>
-                                    </div>
-                                )
-                                break
-                            case 1:
-                                return (
-                                    <div className={'row middle'}>
-                                        <img src={logo} alt='logo   '></img>
-                                    </div>
-                                )
-                                break
-                            case 2:
-                                return (
-                                    <div className={'row right'}>
-                                        <img src={logo} alt='logo   '></img>
-                                    </div>
-                                )
-                                break
-                            default:
-                        }
+        <div id={'gameBoard'}>
+            {
+                upcoming.reverse().map(item => {
+                    switch (item) {
+                        case 0:
+                            return (
+                                <div className={'row'}>
+                                    <span className={"left"}>
+                                        <img src={logo} alt='logo'></img>
+                                    </span>
+                                    <span className={"middle"}></span>
+                                    <span className={"right"}></span>
+                                </div>
+                            )
+                            break
+                        case 1:
+                            return (
+                                <div className={'row'}>
+                                    <span className={"left"}>
+                                    </span>
+                                    <span className={"middle"}>
+                                        <img src={logo} alt='logo'></img>
+                                    </span>
+                                    <span className={"right"}></span>
+                                </div>
+                            )
+                            break
+                        case 2:
+                            return (
+                                <div className={'row'}>
+                                    <span className={"left"}>
+                                    </span>
+                                    <span className={"middle"}>
+                                    </span>
+                                    <span className={"right"}>
+                                        <img src={logo} alt='logo'></img>
+                                    </span>
+                                </div>
+                            )
+                            break
+                        default:
+                    }
 
-                    })
-                }
-
+                })
+            }
+            <div className={'row hitbar'}>
+                <span className={"left"}>
+                </span>
+                <span className={"middle"}>
+                </span>
+                <span className={"right"}>
+                </span>
             </div>
-        </main >
+        </div>
     )
 }
 
